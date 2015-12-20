@@ -1,0 +1,7 @@
+
+ZABBIX profiles, templates and scripts to monitor Eucalyptus at a production level.
+
+Disclaimer : I nor Eucalyptus can't be held responsible for any issue encountered in the deployment of any artifcats
+contained in this repository.
+
+Creator : John Mille
