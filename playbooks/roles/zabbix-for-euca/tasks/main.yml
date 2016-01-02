@@ -1,0 +1,12 @@
+#
+# Configure Zabbix template
+#
+
+- name: Configure zabbix template
+  template: src=zabbix_agent.conf.j2 dest=/etc/zabbix_agent.conf
+
+- name: Configure zabbix agentD template
+  template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix_agentd.conf
+
+- name: Restart Zabbix Agent
+  service: name=zabbix-agent state=restarted

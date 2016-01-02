@@ -1,0 +1,6 @@
+
+- hosts: nc
+  roles:
+  - zabbix-for-euca
+  vars:
+  - zabbix_server: "zabbix"
