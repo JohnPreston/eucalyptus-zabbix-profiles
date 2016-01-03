@@ -4,9 +4,28 @@
 
 - name: Configure zabbix template
   template: src=zabbix_agent.conf.j2 dest=/etc/zabbix_agent.conf
+  tags:
+  - zabbix
 
 - name: Configure zabbix agentD template
   template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix_agentd.conf
+  tags:
+  - zabbix
 
 - name: Restart Zabbix Agent
   service: name=zabbix-agent state=restarted
+  tags:
+  - zabbix
+  - service
+
+- name: Enable sudoers.d file lookup
+  lineinfile: dest=/etc/sudoers regexp="includedir" line="#includedir /etc/sudoers.d"
+  tags:
+  - zabbix
+  - sudo
+
+- name: Copy Zabbix sudoers profile
+  copy: src=zabbix_sudoers_file dest=/etc/sudoers.d/zabbix_sudoers_file mode=0440
+  tags:
+  - zabbix
+  - sudo

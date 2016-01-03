@@ -1,0 +1,5 @@
+
+Cmnd_Alias ZABBIX_EUCA = /usr/bin/virsh
+zabbix ALL=(ALL:ALL) NOPASSWD: ZABBIX_EUCA
+
+Defaults:zabbix !requiretty
