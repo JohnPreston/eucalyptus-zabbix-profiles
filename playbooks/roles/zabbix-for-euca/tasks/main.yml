@@ -29,3 +29,9 @@
   tags:
   - zabbix
   - sudo
+
+- name: Copy Euca NC scripts files
+  copy: src={{ item }} dest=/var/lib/zabbix/
+  with_items:
+  - euca-nc-list-instances.sh
+  - euca-nc-count-instances.sh
