@@ -1,6 +1,18 @@
 
+- hosts: ceph
+  roles:
+  - zabbix-ceph
+  vars:
+  - zabbix_server: "zabbix"
+
 - hosts: nc
   roles:
   - zabbix-euca-nc
+  vars:
+  - zabbix_server: "zabbix"
+
+- hosts: ufs
+  roles:
+  - zabbix-euca-ufs
   vars:
   - zabbix_server: "zabbix"

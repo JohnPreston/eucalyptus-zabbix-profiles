@@ -6,17 +6,12 @@
   template: src=zabbix_agent.conf.j2 dest=/etc/zabbix_agent.conf
   tags:
   - zabbix
+  - configuration
 
 - name: Configure zabbix agentD template
   template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix_agentd.conf
   tags:
   - zabbix
-
-- name: Restart Zabbix Agent
-  service: name=zabbix-agent state=restarted
-  tags:
-  - zabbix
-  - service
 
 - name: Enable sudoers.d file lookup
   lineinfile: dest=/etc/sudoers regexp="includedir" line="#includedir /etc/sudoers.d"
@@ -31,7 +26,28 @@
   - sudo
 
 - name: Copy Euca NC scripts files
-  copy: src={{ item }} dest=/var/lib/zabbix/
+  copy: src={{ item }} dest=/var/lib/zabbix/ mode=755 owner=zabbix group=root
   with_items:
   - euca-nc-list-instances.sh
   - euca-nc-count-instances.sh
+  tags:
+  - zabbix
+  - configuration
+
+- name: Create user parameters directory
+  shell: file /etc/zabbix_agentd.conf.d/ || mkdir -p /etc/zabbix_agentd.conf.d/
+  tags:
+  - zabbix
+  - configuration
+
+- name: Copy the zabbix User Parameters file
+  copy: src=zabbix_userparameters_nc.conf dest=/etc/zabbix_agentd.conf.d/zabbix_userparameters_nc.conf
+  tags:
+  - zabbix
+  - configuration
+
+- name: Restart Zabbix Agent
+  service: name=zabbix-agent state=restarted
+  tags:
+  - zabbix
+  - service

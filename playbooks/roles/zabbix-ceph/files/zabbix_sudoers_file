@@ -1,0 +1,5 @@
+
+Cmnd_Alias ZABBIX_CEPH = /usr/bin/ceph , /usr/bin/rbd
+zabbix ALL=(ALL:ALL) NOPASSWD: ZABBIX_CEPH
+
+Defaults:zabbix !requiretty

@@ -196,7 +196,7 @@ Hostname={{ ansible_hostname }}
 # Mandatory: no
 # Range: 1-1000
 # Default:
-MaxLinesPerSecond=30
+# MaxLinesPerSecond=100
 
 ############ ADVANCED PARAMETERS #################
 
@@ -229,7 +229,7 @@ MaxLinesPerSecond=30
 #
 # Mandatory: no
 # Default:
-AllowRoot=0
+# AllowRoot=0
 
 ### Option: Include
 #	You may include individual files or all files in a directory in the configuration file.
@@ -240,7 +240,7 @@ AllowRoot=0
 # Include=
 
 # Include=/etc/zabbix_agentd.userparams.conf
-Include=/etc/zabbix_agentd.conf.d/
+# Include=/etc/zabbix_agentd.conf.d/
 
 ####### USER-DEFINED MONITORED PARAMETERS #######
 
@@ -252,7 +252,7 @@ Include=/etc/zabbix_agentd.conf.d/
 # Mandatory: no
 # Range: 0-1
 # Default:
-UnsafeUserParameters=0
+# UnsafeUserParameters=0
 
 ### Option: UserParameter
 #	User-defined parameter to monitor. There can be several user-defined parameters.
