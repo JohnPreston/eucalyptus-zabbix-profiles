@@ -6,31 +6,54 @@
   template: src=zabbix_agent.conf.j2 dest=/etc/zabbix_agent.conf
   tags:
   - zabbix
+  - ufs
 
 - name: Configure zabbix agentD template
   template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix_agentd.conf
   tags:
   - zabbix
-
-- name: Restart Zabbix Agent
-  service: name=zabbix-agent state=restarted
-  tags:
-  - zabbix
-  - service
+  - ufs
 
 - name: Enable sudoers.d file lookup
   lineinfile: dest=/etc/sudoers regexp="includedir" line="#includedir /etc/sudoers.d"
   tags:
   - zabbix
   - sudo
+  - ufs
 
 - name: Copy Zabbix sudoers profile
   copy: src=zabbix_sudoers_file dest=/etc/sudoers.d/zabbix_sudoers_file mode=0440
   tags:
   - zabbix
   - sudo
+  - ufs
 
-- name: Copy Euca UFS scripts files
-  copy: src={{ item }} dest=/var/lib/zabbix/
+- name: Copy Euca UFS scripts files in /var/lib/zabbix/
+  copy: src={{ item }} dest=/var/lib/zabbix/ mode=755 owner=zabbix group=root
   with_items:
-  -
+  - euca-ufs-check-service.sh
+  tags:
+  - zabbix
+  - configuration
+  - ufs
+
+- name: Create user parameters directory
+  shell: mkdir -p /etc/zabbix_agentd.conf.d/
+  tags:
+  - zabbix
+  - configuration
+  - ufs
+
+- name: Copy the zabbix User Parameters file
+  copy: src=zabbix_userparameters_ufs.conf dest=/etc/zabbix_agentd.conf.d/zabbix_userparameters_ufs.conf
+  tags:
+  - zabbix
+  - configuration
+  - ufs
+
+- name: Restart Zabbix Agent
+  service: name=zabbix-agent state=restarted
+  tags:
+  - zabbix
+  - service
+  - ufs

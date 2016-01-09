@@ -35,7 +35,7 @@
   - configuration
 
 - name: Create user parameters directory
-  shell: file /etc/zabbix_agentd.conf.d/ || mkdir -p /etc/zabbix_agentd.conf.d/
+  shell: mkdir -p /etc/zabbix_agentd.conf.d/
   tags:
   - zabbix
   - configuration
