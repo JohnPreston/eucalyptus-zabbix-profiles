@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-12-29T07:24:35Z</date>
+    <date>2016-01-08T23:37:32Z</date>
     <groups>
         <group>
-            <name>EucalyptusComputeNodes</name>
+            <name>Templates</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Eucalyptus-NC</template>
-            <name>Eucalyptus NC</name>
+            <template>Template Eucalyptus NC</template>
+            <name>Template Eucalyptus NC</name>
             <groups>
                 <group>
-                    <name>EucalyptusComputeNodes</name>
+                    <name>Templates</name>
                 </group>
             </groups>
             <applications>
@@ -30,13 +30,13 @@
             <items>
                 <item>
                     <name>CountOfInstances</name>
-                    <type>7</type>
+                    <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[bash /var/lib/zabbix/euca-nc-count-instances.sh]</key>
-                    <delay>30</delay>
-                    <history>90</history>
+                    <key>eucanc.vmcount</key>
+                    <delay>15</delay>
+                    <history>31</history>
                     <trends>365</trends>
                     <status>0</status>
                     <value_type>3</value_type>
@@ -69,6 +69,7 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Eucalyptus-NC is running</name>
@@ -111,6 +112,50 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Eucalyptus NC is listening</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>net.tcp.listen[8775]</key>
+                    <delay>30</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Eucalyptus NC default listening port 8775 monitoring.</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Eucanetd is running</name>
@@ -153,6 +198,7 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>libvirt is running</name>
@@ -195,16 +241,17 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>ListOfInstances</name>
-                    <type>7</type>
+                    <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[bash /var/lib/zabbix/euca-nc-list-instances.sh]</key>
-                    <delay>90</delay>
-                    <history>90</history>
+                    <key>eucanc.vmlist</key>
+                    <delay>15</delay>
+                    <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
                     <value_type>4</value_type>
@@ -237,6 +284,7 @@
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
             </items>
             <discovery_rules/>
@@ -247,8 +295,18 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Eucalyptus-NC:proc.num[httpd,root,,-f //var/run/eucalyptus/httpd-nc.conf].last()}&lt;1</expression>
-            <name>Eucalyptus NC is not running</name>
+            <expression>{Template Eucalyptus NC:net.tcp.listen[8775].last()}=0</expression>
+            <name>Eucalyptus-NC on {HOST.NAME} is NOT listening</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>The Eucalyptus NC default port 8775/TCP  is not listening</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template Eucalyptus NC:proc.num[httpd,root,,-f //var/run/eucalyptus/httpd-nc.conf].last()}&lt;1</expression>
+            <name>Eucalyptus NC is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -257,18 +315,18 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Eucalyptus-NC:proc.num[eucanetd].last()}&lt;1</expression>
-            <name>Eucanetd is not running</name>
+            <expression>{Template Eucalyptus NC:proc.num[eucanetd].last()}&lt;1</expression>
+            <name>Eucanetd is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>
-            <priority>5</priority>
+            <priority>4</priority>
             <description/>
             <type>0</type>
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Eucalyptus-NC:proc.num[libvirtd].last()}&lt;1</expression>
-            <name>Libvirtd is not running</name>
+            <expression>{Template Eucalyptus NC:proc.num[libvirtd].last()}&lt;1</expression>
+            <name>Libvirtd is not running on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -304,8 +362,8 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Eucalyptus-NC</host>
-                        <key>system.run[bash /var/lib/zabbix/euca-nc-count-instances.sh]</key>
+                        <host>Template Eucalyptus NC</host>
+                        <key>eucanc.vmcount</key>
                     </item>
                 </graph_item>
             </graph_items>

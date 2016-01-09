@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>2.0</version>
+    <date>2016-01-08T23:39:31Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Eucalyptus UFS</template>
+            <name>Template Eucalyptus UFS</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Eucalyptus API</name>
+                </application>
+                <application>
+                    <name>Eucalyptus Services</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>AUTOSCALING Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} autoscaling {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>autoscaling service health check</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>CLOUDFORMATION Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} cloudformation {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>CLOUDWATCH Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} cloudwatch {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>COMPUTE Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} compute {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>ELB Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} loadbalancing {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>EUARE Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} euare {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>JVM is running</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>proc.num[eucalyptus-cloud,eucalyptus]</key>
+                    <delay>30</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>OSG-S3 Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} objectstorage {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>2</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>objectstorage service health check</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>SIMPLEWORKFLOW Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} simpleworkflow {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>TOKENS Service Health</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} tokens {$EUCA_IP}&quot;]</key>
+                    <delay>10</delay>
+                    <history>10</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>tokens services health check</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Eucalyptus Services</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+            </items>
+            <discovery_rules/>
+            <macros>
+                <macro>
+                    <macro>{$ACCESS_KEY}</macro>
+                    <value>AKIAAW2IZMKARMYRCE5C</value>
+                </macro>
+                <macro>
+                    <macro>{$BOOTSTRAP_URL}</macro>
+                    <value>http://109.104.120.3:8773/services/Empyrean</value>
+                </macro>
+                <macro>
+                    <macro>{$PROPERTIES_URL}</macro>
+                    <value>http://109.104.120.3:8773/services/Properties</value>
+                </macro>
+                <macro>
+                    <macro>{$SECRET_KEY}</macro>
+                    <value>Jc18iC6Gzdz6dokrjXjyME7AQIeKM3og6a1dUsBX</value>
+                </macro>
+            </macros>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} autoscaling {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>AUTOSCALING service is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} cloudformation {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>CLOUDFORMATION is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} cloudwatch {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>CLOUDWATCH is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} compute {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>COMPUTE EC2 service down on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>Compute service is disabled on the UFS</description>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} loadbalancing {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>ELB is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} euare {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>EUARE is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{Template Eucalyptus UFS:proc.num[eucalyptus-cloud,eucalyptus].last()}&lt;1</expression>
+            <name>JVM is not running on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>JVM stopped working.</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} objectstorage {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>OSG-S3 is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} simpleworkflow {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>SIMPLEWORKFLOW is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>(({Template Eucalyptus UFS:system.run[&quot;bash /var/lib/zabbix/euca-ufs-check-service.sh {$ACCESS_KEY} {$SECRET_KEY} {$BOOTSTRAP_URL} tokens {$EUCA_IP}&quot;].regexp(disabled)})#0)</expression>
+            <name>TOKENS is DISABLED on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description/>
+            <type>1</type>
+            <dependencies/>
+        </trigger>
+    </triggers>
+</zabbix_export>
